@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Criar novo contato";
+}
+
+<div class="card-body">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="nome@email.com">
+    </div>
+    <div class="mb-3">
+        <label for="celular" class="form-label">Celular</label>
+        <input type="number" class="form-control" id="celular" placeholder="00 00000 0000">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-dark">
+            Salvar
+        </button>
+        <a class="btn btn-light" asp-controller="Contact" asp-action="Index">Voltar</a>
+    </div>
+</div>
