@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Projeto_VS.Data;
+using Projeto_VS.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,8 @@ namespace Projeto_VS
             services.AddControllersWithViews();
             services.AddEntityFrameworkSqlServer()
                 .AddDbContext<DataBaseContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
+
+            services.AddScoped<IContactRepository, ContactRepository>();    
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
