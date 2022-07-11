@@ -25,15 +25,11 @@ namespace Projeto_VS.Controllers
             return View();
         }   
 
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            ContactModel contact = _contactRepository.GetById(id);
+            return View(contact);
         }  
-
-        public IActionResult Update()
-        {
-            return View();
-        } 
 
         public IActionResult Delete()
         {
@@ -45,6 +41,13 @@ namespace Projeto_VS.Controllers
         {
             _contactRepository.Create(contact);
             return RedirectToAction("Index");
-        }   
+        } 
+
+        [HttpPost]
+        public IActionResult Update(ContactModel contact)
+        {
+            _contactRepository.Update(contact);
+            return RedirectToAction("Index");
+        }  
     }
 }
